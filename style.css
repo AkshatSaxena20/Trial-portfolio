@@ -13,7 +13,7 @@
     --font-mono: 'Fira Code', monospace;
     --glass-bg: rgba(17, 34, 64, 0.45);
     --glass-border: rgba(35, 53, 84, 0.4);
-    --blur-intensity: 8px;
+    --blur-intensity: 2px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -301,4 +301,5 @@ footer p { margin-bottom: 2rem; }
     .timeline-block { width: 100%; padding-left: 50px; padding-right: 0; }
     .timeline-block:nth-child(even) { left: 0; }
     .timeline-dot { left: 12px; }
+
 }
