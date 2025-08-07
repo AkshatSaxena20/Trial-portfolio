@@ -44,11 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Animations ---
     const animatedItems = document.querySelectorAll('.content-section, .timeline-block, .skill-category-card');
-
-    const appearOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
+    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
 
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
@@ -63,30 +59,72 @@ document.addEventListener('DOMContentLoaded', () => {
         appearOnScroll.observe(item);
     });
 
-    // --- START: New Copy-to-Clipboard Logic ---
-    const copyEmailBtn = document.getElementById('copy-email-btn');
-    const feedbackSpan = document.querySelector('.copy-feedback');
+    // --- START: Contact Modal Logic ---
+    const modal = document.getElementById('contact-modal');
+    const overlay = document.getElementById('contact-modal-overlay');
+    const openBtn = document.getElementById('open-modal-btn');
+    const closeBtn = document.getElementById('close-modal-btn');
 
-    if (copyEmailBtn && feedbackSpan) {
-        copyEmailBtn.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevents the link from navigating
+    function openModal() {
+        modal.classList.add('is-open');
+        overlay.classList.add('is-open');
+    }
 
-            const emailAddress = 'siddharthjainn07@gmail.com';
+    function closeModal() {
+        modal.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+    }
 
-            navigator.clipboard.writeText(emailAddress).then(() => {
-                // On success, show the feedback message
-                feedbackSpan.classList.add('show');
+    if (openBtn && modal && overlay && closeBtn) {
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+    }
+    // --- END: Contact Modal Logic ---
 
-                // Hide the feedback message after 2 seconds
+
+    // --- Google Form Submission Logic ---
+    const contactForm = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-btn');
+
+    if(contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+    
+            const googleFormID = '1FAIpQLScP_2D6xH_s1eYyV-fOa5U2Xw7Z6p2jYQhN0Z8_3t-x0G3lMw'; 
+            const formActionURL = `https://docs.google.com/forms/d/e/${googleFormID}/formResponse`;
+    
+            const formData = new FormData(contactForm);
+    
+            submitButton.disabled = true;
+            submitButton.querySelector('span').textContent = 'Submitting...';
+    
+            fetch(formActionURL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                contactForm.reset();
+                submitButton.querySelector('span').textContent = 'Submitted!';
+                submitButton.querySelector('.submit-icon').style.display = 'none';
+                
+                // Close the modal after a short delay
                 setTimeout(() => {
-                    feedbackSpan.classList.remove('show');
-                }, 2000);
+                    closeModal();
+                    // Reset button after closing
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.querySelector('span').textContent = 'Submit';
+                        submitButton.querySelector('.submit-icon').style.display = 'inline-block';
+                    }, 500);
+                }, 1500);
 
-            }).catch(err => {
-                console.error('Failed to copy email: ', err);
-                // Optionally, you could show an error message here
+            }).catch(error => {
+                console.error('Error submitting form:', error);
+                submitButton.disabled = false;
+                submitButton.querySelector('span').textContent = 'Submit';
+                alert('Oops! There was a problem submitting your form.');
             });
         });
     }
-    // --- END: New Copy-to-Clipboard Logic ---
 });
