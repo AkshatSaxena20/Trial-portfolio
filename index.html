@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddharth Jain - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="background-canvas"></canvas>
+
+    <header>
+        <div class="logo"><a href="#">SJ</a></div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Tech Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <p class="mono-text anim-fade-up" style="animation-delay: 100ms;">Hi, my name is</p>
+                <h1 class="name-text anim-fade-up" style="animation-delay: 200ms;">Siddharth Jain.</h1>
+                <h2 class="tagline-text anim-fade-up" style="animation-delay: 300ms;">I build things for the cloud.</h2>
+                <p class="intro-text anim-fade-up" style="animation-delay: 400ms;">
+                    I'm a DevOps and Site Reliability Engineer specializing in building scalable and resilient infrastructure for modern cloud-native applications.
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2 class="section-heading" data-section-number="01">About Me</h2>
+            <div class="about-content">
+                <p>With over five years of dedicated experience in <span class="highlight">DevOps</span> and <span class="highlight">Site Reliability Engineering</span>, I have a proven track record of architecting and managing robust, <span class="highlight">scalable</span>, and secure infrastructures. My passion lies in the intersection of development and operations, where I leverage <span class="highlight">automation</span> and best practices to enhance system reliability and efficiency.</p>
+                <p>My core philosophy revolves around the principles of <span class="highlight">Infrastructure as Code (IaC)</span>, continuous integration and deployment <span class="highlight">(CI/CD)</span>, and proactive monitoring. I specialize in <span class="highlight">cloud-native ecosystems</span>, particularly with <span class="highlight">AWS</span> and <span class="highlight">GCP</span>, and have extensive hands-on experience with containerization technologies like <span class="highlight">Docker</span> and orchestration platforms like <span class="highlight">Kubernetes</span>. I am driven by the challenge of solving complex problems in high-stakes environments, ensuring <span class="highlight">operational stability</span> and peak performance.
+                </p>
+            </div>
+        </section>
+
+        <section id="experience" class="content-section">
+            <h2 class="section-heading" data-section-number="02">Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Site Reliability Engineer <span>@ Tokamak Network</span></h3>
+                        <p class="date">Oct 2023 – Present</p>
+                        <ul>
+                            <li>Provided expert SRE services ensuring optimal reliability for blockchain applications and infrastructure.</li>
+                            <li>Integrated Okta with multiple cloud platforms, including AWS, Cloudflare, and Slack.</li>
+                            <li>Leveraged Kubernetes orchestration, Docker containerization, and cloud-native technologies to optimize deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior DevOps Engineer <span>@ ZeroLend</span></h3>
+                        <p class="date">March 2021 – Oct 2023</p>
+                        <ul>
+                            <li>Designed a multi-environment infrastructure to enhance operational resilience using Kubernetes and Docker.</li>
+                            <li>Established comprehensive monitoring and logging solutions using Prometheus, Grafana, and ELK.</li>
+                            <li>Conducted performance analysis and optimization, achieving a 35% reduction in monthly cloud costs on AWS and GCP.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>DevOps Engineer <span>@ Deqode Labs</span></h3>
+                        <p class="date">April 2019 – March 2021</p>
+                        <ul>
+                            <li>Spearheaded application design, development, and deployment, achieving a 50% reduction in deployment time with Docker.</li>
+                            <li>Established and optimized CI/CD pipelines using Jenkins and GitHub Actions.</li>
+                            <li>Designed and implemented scalable infrastructure on AWS and GCP using Terraform.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2 class="section-heading" data-section-number="03">Technical Skills</h2>
+            <div class="skill-grid">
+
+                <div class="skill-category-card">
+                    <h3>Cloud Platforms</h3>
+                    <ul class="skill-items-list">
+                        <li>AWS</li>
+                        <li>Google Cloud Platform (GCP)</li>
+                        <li>DigitalOcean</li>
+                        <li>Hetzner</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3>Containerization & CI/CD</h3>
+                    <ul class="skill-items-list">
+                        <li>Docker & Kubernetes</li>
+                        <li>Helm Charts</li>
+                        <li>GitHub Actions & ArgoCD</li>
+                        <li>Jenkins</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3>Infrastructure as Code (IaC)</h3>
+                    <ul class="skill-items-list">
+                        <li>Terraform & Terragrunt</li>
+                        <li>Pulumi</li>
+                        <li>CloudFormation</li>
+                        <li>Ansible</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category-card">
+                    <h3>Monitoring & Observability</h3>
+                    <ul class="skill-items-list">
+                        <li>Prometheus & Grafana</li>
+                        <li>Thanos</li>
+                        <li>ELK / EFK Stack</li>
+                        <li>CloudWatch & CloudTrail</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3>AWS Services</h3>
+                    <ul class="skill-items-list">
+                        <li>EC2, EKS, ECS, Lambda</li>
+                        <li>VPC, Route53</li>
+                        <li>API Gateway, CloudFront</li>
+                        <li>AWS SQS</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3>Security & Identity</h3>
+                    <ul class="skill-items-list">
+                        <li>Okta (SSO) & IAM</li>
+                        <li>Role-Based Access Control (RBAC)</li>
+                        <li>Cloudflare</li>
+                        <li>HashiCorp Vault</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category-card">
+                    <h3>Languages</h3>
+                    <ul class="skill-items-list">
+                        <li>Python</li>
+                        <li>Go</li>
+                        <li>Node.js / TypeScript</li>
+                        <li>Bash Scripting</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category-card">
+                    <h3>Databases</h3>
+                    <ul class="skill-items-list">
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Redis</li>
+                        <li>Clickhouse</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category-card">
+                    <h3>Messaging Systems</h3>
+                    <ul class="skill-items-list">
+                        <li>Kafka</li>
+                        <li>RabbitMQ</li>
+                        <li>Cloud Pub/Sub</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2 class="section-heading" data-section-number="04">Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>Golang Kubernetes Operator</h3>
+                    <p>For Ethereum staking to enhance efficiency and automation.</p>
+                    <a href="https://github.com/jarvis-401" target="_blank" class="project-view-link">View →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Database Kubernetes Operators</h3>
+                    <p>Versatile operators for database backup/restore and Vault initialization.</p>
+                    <a href="https://github.com/jarvis-401" target="_blank" class="project-view-link">View →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Automated Deployment Scripts</h3>
+                    <p>Python scripts integrated with Helm to automate complex deployments.</p>
+                    <a href="https://github.com/jarvis-401" target="_blank" class="project-view-link">View →</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="content-section">
+        <h2 class="footer-heading" data-section-number="05">Get In Touch</h2>
+        <p>I'm always open to discussing new projects and challenging opportunities. My inbox is always open, so feel free to reach out!</p>
+        <div class="social-links-footer">
+            <a href="https://github.com/jarvis-401" target="_blank" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="https://www.linkedin.com/in/siddharth-j-aa303a316/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <div class="copy-email-wrapper">
+                <a href="#" id="copy-email-btn" aria-label="Copy Email Address">
+                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <span class="copy-feedback" aria-live="polite">Copied!</span>
+            </div>
+        </div>
+        <p class="credit">Designed & Built by Siddharth Jain</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
