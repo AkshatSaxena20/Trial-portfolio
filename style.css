@@ -27,7 +27,17 @@ body { font-family: var(--font-sans); background-color: var(--dark-navy); color:
 
 #background-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-color: var(--dark-navy); background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px); background-size: 40px 40px; }
 
-header { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; position: fixed; width: 100%; z-index: 10; background-color: rgba(10, 25, 47, 0.85); backdrop-filter: blur(10px); }
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1.5rem 3rem; 
+    position: fixed; 
+    width: 100%; 
+    z-index: 10; 
+    background-color: rgba(10, 25, 47, 0.85); 
+    backdrop-filter: blur(10px); 
+}
 .logo a { font-family: var(--font-mono); text-decoration: none; color: var(--cyan); font-size: 1.5rem; font-weight: bold; }
 nav ul { display: flex; list-style: none; gap: 2.5rem; }
 nav a { color: var(--lightest-slate); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
@@ -39,9 +49,23 @@ main { padding: 0 15%; }
 .hero-content { max-width: 800px; }
 .mono-text { font-family: var(--font-mono); color: var(--cyan); font-size: 1rem; margin-bottom: 1.5rem; }
 .highlight { color: var(--cyan); }
-.name-text, .tagline-text { font-size: 4.5rem; font-weight: 700; line-height: 1.1; margin: 0; }
-.name-text { color: var(--lightest-slate); }
-.tagline-text { color: var(--light-slate); margin-top: 0.5rem; }
+
+.name-text { 
+    font-size: 4.5rem; 
+    font-weight: 700; 
+    line-height: 1.1; 
+    margin: 0; 
+    color: var(--lightest-slate);
+}
+.tagline-text { 
+    font-size: 3.2rem;
+    font-weight: 700; 
+    line-height: 1.1; 
+    margin: 0;
+    color: var(--cyan);
+    margin-top: 0.5rem;
+}
+
 .intro-text { margin-top: 1.5rem; max-width: 540px; font-size: 1.1rem; }
 
 .content-section { padding: 100px 0; max-width: 900px; margin: 0 auto; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
@@ -88,34 +112,20 @@ main { padding: 0 15%; }
 .project-view-link { font-family: var(--font-mono); color: var(--cyan); text-decoration: none; font-weight: 500; transition: color 0.3s ease, transform 0.3s ease; display: inline-block; }
 .project-view-link:hover { color: var(--white); transform: translateX(5px); }
 
-/* --- START: Footer & Contact Button --- */
 footer#contact { max-width: 600px; padding: 50px 0; text-align: center; }
 .footer-heading { display: block; font-family: var(--font-mono); font-size: 1.5rem; color: var(--cyan); margin-bottom: 1rem; }
 footer#contact p { margin-bottom: 2rem; }
 .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
 .footer-links a svg { width: 24px; height: 24px; stroke: var(--slate); transition: all 0.3s; }
 .footer-links a:hover svg { stroke: var(--cyan); transform: translateY(-3px); }
-.contact-button {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    color: var(--cyan);
-    background-color: transparent;
-    border: 1px solid var(--cyan);
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+.contact-button { font-family: var(--font-mono); font-size: 1rem; color: var(--cyan); background-color: transparent; border: 1px solid var(--cyan); padding: 0.75rem 1.5rem; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease; }
 .contact-button:hover { background-color: rgba(100, 255, 218, 0.1); }
 .credit { margin-top: 2rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--slate); }
-/* --- END: Footer & Contact Button --- */
 
-/* --- START: Contact Modal --- */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.85); backdrop-filter: blur(5px); z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
 .modal { position: fixed; top: 50%; left: 50%; background-color: var(--modal-bg); z-index: 1001; border-radius: 12px; padding: 2rem; width: 90%; max-width: 650px; opacity: 0; visibility: hidden; transform: translate(-50%, -40%); transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; }
-
-.modal-overlay.is-open { opacity: 1; visibility: visible; }
-.modal.is-open { opacity: 1; visibility: visible; transform: translate(-50%, -50%); }
+.modal-overlay.is-open, .modal.is-open { opacity: 1; visibility: visible; }
+.modal.is-open { transform: translate(-50%, -50%); }
 
 .close-button { position: absolute; top: 1rem; right: 1.5rem; background: none; border: none; font-size: 2.5rem; color: var(--slate); cursor: pointer; line-height: 1; }
 .modal-content h2 { font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
@@ -132,7 +142,6 @@ footer#contact p { margin-bottom: 2rem; }
 .submit-button:hover { background-color: #4a8dfa; box-shadow: 0 0 20px var(--blue-accent-glow); transform: scale(1.05); }
 .submit-button:disabled { background-color: var(--cyan); color: var(--dark-navy); opacity: 1; cursor: not-allowed; }
 .submit-icon { width: 1.2rem; height: 1.2rem; }
-/* --- END: Contact Modal --- */
 
 .anim-fade-up { animation: fade-up 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) forwards; opacity: 0; transform: translateY(20px); }
 @keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
