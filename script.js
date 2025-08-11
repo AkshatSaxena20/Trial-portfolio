@@ -59,11 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         appearOnScroll.observe(item);
     });
 
-    // --- START: Contact Modal Logic ---
+    // --- Contact Modal Logic ---
     const modal = document.getElementById('contact-modal');
     const overlay = document.getElementById('contact-modal-overlay');
     const openBtn = document.getElementById('open-modal-btn');
     const closeBtn = document.getElementById('close-modal-btn');
+    const contactForm = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-btn');
 
     function openModal() {
         modal.classList.add('is-open');
@@ -80,51 +82,36 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', closeModal);
         overlay.addEventListener('click', closeModal);
     }
-    // --- END: Contact Modal Logic ---
 
+    // --- "FIRE AND FORGET" SUBMISSION LOGIC ---
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    // --- Google Form Submission Logic ---
-    const contactForm = document.getElementById('contact-form');
-    const submitButton = document.getElementById('submit-btn');
-
-    if(contactForm) {
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent default form submission
-    
-            const googleFormID = '1FAIpQLScP_2D6xH_s1eYyV-fOa5U2Xw7Z6p2jYQhN0Z8_3t-x0G3lMw'; 
-            const formActionURL = `https://docs.google.com/forms/d/e/${googleFormID}/formResponse`;
-    
             const formData = new FormData(contactForm);
-    
+            const url = contactForm.action;
+            
             submitButton.disabled = true;
-            submitButton.querySelector('span').textContent = 'Submitting...';
-    
-            fetch(formActionURL, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            }).then(() => {
-                contactForm.reset();
-                submitButton.querySelector('span').textContent = 'Submitted!';
-                submitButton.querySelector('.submit-icon').style.display = 'none';
-                
-                // Close the modal after a short delay
+            submitButton.querySelector('span').textContent = 'Submitted!';
+
+            try {
+                // This mode bypasses CORS by not waiting for a response.
+                fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' 
+                });
+            } catch (error) {
+                console.error('Submission failed locally:', error);
+            } finally {
+                // Assume success and close the modal.
                 setTimeout(() => {
                     closeModal();
-                    // Reset button after closing
-                    setTimeout(() => {
-                        submitButton.disabled = false;
-                        submitButton.querySelector('span').textContent = 'Submit';
-                        submitButton.querySelector('.submit-icon').style.display = 'inline-block';
-                    }, 500);
+                    contactForm.reset();
+                    submitButton.disabled = false;
+                    submitButton.querySelector('span').textContent = 'Submit';
                 }, 1500);
-
-            }).catch(error => {
-                console.error('Error submitting form:', error);
-                submitButton.disabled = false;
-                submitButton.querySelector('span').textContent = 'Submit';
-                alert('Oops! There was a problem submitting your form.');
-            });
+            }
         });
     }
 });
